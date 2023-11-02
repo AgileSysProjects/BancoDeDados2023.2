@@ -1,2 +1,177 @@
-//Criar aqui scripts para criar tabelas
+create table professores (
+    matricula character(8),
+    cpf character(14) unique,
+    nome varchar(100) not null,
+    dtadmissao date not null,
+    salario real not null,
+    email varchar(30) not null,
+    areaensino varchar(40) not null,
+    titulacao varchar(40) not null,
+    telefone1 varchar(15) not null,
+    telefone2 varchar(15),
+    primary key (matricula)
+);
 
+create table enderecoprofessor (
+    matriculaprofessor character(8),
+    municipio varchar(30) not null,
+    bairro varchar(30) not null,
+    numero int not null,
+    logradouro varchar(30) not null,
+    primary key (matriculaprofessor),
+    foreign key (matriculaprofessor) references professores(matricula)
+);
+
+create table secretarios (
+    matricula character(8),
+    cpf character(14) unique,
+    nome varchar(100) not null,
+    dtadmissao date not null,
+    salario real not null,
+    email varchar(30) not null,
+    tipocargo varchar(30) not null,
+    horariotrabalho varchar(30) not null,
+    telefone1 varchar(15) not null,
+    telefone2 varchar(15),
+    primary key (matricula)
+);
+
+create table enderecosecretario (
+    matriculasecretario character(8),
+    municipio varchar(30) not null,
+    bairro varchar(30) not null,
+    numero int not null,
+    logradouro varchar(30) not null,
+    primary key (matriculasecretario),
+    foreign key (matriculasecretario) references secretarios(matricula)
+);
+
+create table disciplinas (
+    iddisciplina int,
+    totalaulas int not null,
+    cargahoraria int not null,
+    primary key (iddisciplina)
+);
+
+create table turmas (
+    idturma int, 
+    ano int not null,
+    quantalunos int not null,
+    sala varchar(40) not null,
+    serie varchar(20) not null,
+    primary key (idturma)
+);
+
+create table aulas (
+    idaula int,
+    conteudo varchar(100) not null,
+    data date not null,
+    idturma int,
+    iddisciplina int,
+    primary key (idaula),
+    foreign key (idturma) references turmas(idturma),
+    foreign key (iddisciplina) references disciplinas(iddisciplina)
+);
+
+create table alunos (
+    matricula character(8),
+    cpf character(14) unique,
+    sexo character(1) not null,
+    nome varchar(100) not null,
+    datanascimento date not null,
+    nomeresponsavel varchar(100) not null,
+    telefoneresponsavel1 varchar(15) not null,
+    telefoneresponsavel2 varchar(15),
+    matriculasecretario character(8),
+    primary key (matricula),
+    foreign key (matriculasecretario) references secretarios(matricula)
+);
+
+create table enderecoalunos(
+    matriculaaluno character(8),
+    zona character(20),
+    municipio varchar(30) not null,
+    bairro varchar(30) not null,
+    numero int not null,
+    logradouro varchar(30) not null,
+    primary key (matriculaaluno),
+    foreign key (matriculaaluno) references alunos(matricula)
+);
+
+create table bimestres (
+    idbimestre int,
+    anoletivo int not null,
+    numero int not null,
+    dtinicio date,
+    dttermino date,
+    primary key (idbimestre)
+);
+
+create table avaliacoes (
+    idavaliacao int,
+    tipo varchar(30) not null,
+    data date not null,
+    idbimestre int,
+    iddisciplina int,
+    idturma int,
+    primary key (idavaliacao),
+    foreign key (idbimestre) references bimestres(idbimestre),
+    foreign key (iddisciplina) references disciplinas(iddisciplina),
+    foreign key (idturma) references turmas(idturma)
+);
+
+create table faltas (
+    idfalta int, 
+    matriculaaluno character(8),
+    justificativa varchar(100) not null,
+    data date not null,
+    primary key (idfalta, matriculaaluno),
+    foreign key (matriculaaluno) references alunos(matricula)
+);
+
+create table faltasporaula (
+    idfalta int,
+    idaula int,
+    matriculaaluno character(8),
+    primary key (idfalta, idaula, matriculaaluno),
+    foreign key (idfalta) references faltas(idfalta),
+    foreign key (idaula) references aulas(idaula),
+    foreign key (matriculaaluno) references alunos(matricula)
+);
+
+create table avaliacaodealuno (
+    matriculaaluno character(8),
+    idavaliacao int,
+    nota real not null,
+    primary key (matriculaaluno, idavaliacao),
+    foreign key (matriculaaluno) references alunos(matricula),
+    foreign key (idavaliacao) references avaliacoes(idavaliacao)
+);
+
+create table bimestredealuno (
+    matriculaaluno character(8),
+    idbimestre int, 
+    situacao varchar(20) not null,
+    primary key (matriculaaluno, idbimestre),
+    foreign key (matriculaaluno) references alunos(matricula),
+    foreign key (idbimestre) references bimestres(idbimestre)
+);
+
+create table turmasdealuno (
+    idturma int,
+    matriculaaluno character(8),
+    anomatriculado int not null,
+    primary key (idturma, matriculaaluno),
+    foreign key (idturma) references turmas(idturma),
+    foreign key (matriculaaluno) references alunos(matricula)
+);
+
+create table professoresporturma (
+    matriculaprofessor character(8),
+    idturma int,
+    iddisciplina int,
+    primary key (matriculaprofessor, idturma, iddisciplina),
+    foreign key (matriculaprofessor) references professores(matricula),
+    foreign key (idturma) references turmas(idturma),
+    foreign key (iddisciplina) references disciplinas(iddisciplina)
+);
