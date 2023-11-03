@@ -50,6 +50,7 @@ create table disciplinas (
     iddisciplina int,
     totalaulas int not null,
     cargahoraria int not null,
+    nome varchar(20), not null,
     primary key (iddisciplina)
 );
 
@@ -125,18 +126,16 @@ create table faltas (
     matriculaaluno character(8),
     justificativa varchar(100) not null,
     data date not null,
-    primary key (idfalta, matriculaaluno),
+    primary key (idfalta),
     foreign key (matriculaaluno) references alunos(matricula)
 );
 
 create table faltasporaula (
     idfalta int,
     idaula int,
-    matriculaaluno character(8),
-    primary key (idfalta, idaula, matriculaaluno),
+    primary key (idfalta, idaula),
     foreign key (idfalta) references faltas(idfalta),
-    foreign key (idaula) references aulas(idaula),
-    foreign key (matriculaaluno) references alunos(matricula)
+    foreign key (idaula) references aulas(idaula)
 );
 
 create table avaliacaodealuno (

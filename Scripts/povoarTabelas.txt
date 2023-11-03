@@ -1,2 +1,126 @@
-//Criar aqui scripts para povoar tabelas
+insert into professores 
+values 
+('20210001', '111.111.111-11', 'José Antônio da Silva', '2021-02-03', 3000.00, 'joseantonio@gmail.com', 'Português', 'Graduação', '83982074951', '83981080123'),
+('20210002', '222.222.222-22', 'Cândida Maria Mariz', '2021-02-03', 5000.00, 'candidamaria@gmail.com', 'Matemática', 'Mestrado', '83988764532', '83988826354'),
+('20200003', '333.333.333-33', 'José Guimarães da Silva Neto', '2020-02-03', 3500.00, 'joseguimaraes@gmail.com', 'Geografia', 'Graduação', '83991234572', '83991876512'),
+('20180004', '444.444.444-44', 'Luciamara Cavalcante Araújo', '2018-02-03', 4000.00, 'luciamaracavalcante@gmail.com', 'Ciências', 'Graduação', '83981768900', '8398164523'),
+('20190005', '555.555.555-55', 'Paulo Freitas da Silva', '2019-02-03', 4000.00, 'paulofreitas@gmail.com', 'Português', 'Graduação', '83982072233', '83981987623');
+
+insert into enderecoprofessor
+values 
+('20210001', 'Sousa', 'Estação', 401, 'Rua Dom Pedro I'), 
+('20210002', 'Sousa', 'Estação', 304, 'Rua Dom Pedro II'),
+('20200003', 'Sousa', 'Centro', 202, 'Rua Gualberto Filho'),
+('20180004', 'Cajazeiras', 'Centro', 150, 'Avenida Joca Claudino'),
+('20190005', 'Cajazeiras', 'Por do Sol', 989, 'Rua José Leite de Oliveira');
+
+insert into secretarios
+values
+('20150021', '666.666.666-66', 'Ranyel Soares', '2015-05-09', 2500.00, 'ranyelsoares@gmail.com', 'Comissionado', '83981234567', '83981876345'),
+('20160023', '777.777.777-77', 'Matheus Lorenzo Braga', '2016-03-07', 3000.00, 'matheuslorenzo@gmail.com', 'Comissionado', '83988342515', '83981231487'),
+('19980002', '888.888.888-88', 'Maria Rita Sousa', '1998-01-02', 2000.00, 'mariarita@gmail.com', 'Concursado', '83991456789', '83991887734'),
+('20200008', '999.999.999-99', 'Antônia Carla Andrade', '2020-04-04', 3000.00, 'antoniacarla@gmail.com', 'Comissionado', '83982564788', '83981236789'),
+('20210003', '123.123.123-12', 'Carlos Alberto Nobrega', '2021-01-02', 3500.00, 'carlosalberto@gmail.com', 'Concursado', '83999876234', '83982557890');
+
+insert into enderecosecretario
+values
+('20150021', 'Marizópolis', 'Santo Antônio', 98, 'Rua 7 de Setembro'),
+('20160023', 'Sousa', 'Centro', 203, 'Rua Gualberto Filho'),
+('19980002', 'Marizópolis', 'Centro', 54, 'Luzia Braga'),
+('20200008', 'Cajazeiras', 'Centro', 149, 'Avenida Joca Claudino'),
+('20210003', 'Marizópolis', 'Santo Antônio', 23, 'Rua 7 de Setembro');
+
+insert into disciplinas
+values
+(1, 40, 80, 'Matemática'),
+(2, 35, 70, 'Português'),
+(3, 45, 90, 'Ciências'),
+(4, 30, 60, 'História'),
+(5, 50, 100, 'Geografia');
+
+insert into turmas
+values
+(1, 2023, 30, 'Sala 101', '6º ano A'),
+(2, 2023, 28, 'Sala 102', '6º ano B'),
+(3, 2023, 32, 'Sala 103', '7º ano'),
+(4, 2023, 30, 'Sala 201', '8 ano'),
+(5, 2023, 28, 'Sala 202', '9º ano A'),
+(6, 2023, 32, 'Sala 203', '9º ano B');
+
+insert into aulas
+values
+(1, 'Introdução à Matemática', '2023-01-05', 1, 1),
+(2, 'Gramática e Redação', '2023-01-06', 2, 2),
+(3, 'Ciências Naturais', '2023-01-07', 3, 3),
+(4, 'História do Brasil', '2023-01-08', 4, 4),
+(5, 'Geografia Mundial', '2023-01-09', 5, 5),
+(6, 'Álgebra Avançada', '2023-01-10', 1, 1),
+(7, 'Leitura e Escrita', '2023-01-11', 2, 2),
+(8, 'Física e Química', '2023-01-12', 3, 3),
+(9, 'Civilizações Antigas', '2023-01-13', 4, 4),
+(10, 'Clima e Meio Ambiente', '2023-01-14', 5, 5),
+(11, 'Geometria Básica', '2023-01-15', 1, 1),
+(12, 'Leitura e Interpretação de Textos', '2023-01-16', 2, 2),
+(13, 'Biologia Celular', '2023-01-17', 3, 3),
+(14, 'História Antiga', '2023-01-18', 4, 4),
+(15, 'Problemas Ambientais Globais', '2023-01-19', 5, 5),
+(16, 'Estatísticas e Probabilidades', '2023-01-20', 1, 1),
+(17, 'Redação Criativa', '2023-01-21', 2, 2),
+(18, 'Química Orgânica', '2023-01-22', 3, 3),
+(19, 'Idade Média', '2023-01-23', 4, 4),
+(20, 'Ecologia e Sustentabilidade', '2023-01-24', 5, 5);
+
+insert into alunos
+values
+('20230021', '121.121.121-12', 'F', 'Maria Clara', '2010-03-15', 'José Alceu', '83981008786', '83981234588', '20150021'), x
+('20230022', '232.232.232-23', 'F', 'Ana Luzia', '2009-07-20', 'Marta Araújo', '83982768594', '83982345697', '20150021'), x
+('20230024', '343.343.343-34', 'M', 'José Francisco', '2008-01-10', 'Lurdes Sousa', '84982348799', '83982008765', '20160023'), x
+('20230025', '454.454.454-45', 'F', 'Ana Lucia', '2007-11-05', 'José Alceu', '83981008786', '83981234588', '20150021'), x
+('20230026', '565.565.565-56', 'M', 'Matheus Francisco', '2006-05-18', 'Marta Araújo', '83982768594', '83982345697', '20150021'), 
+('20230027', '676.676.676-67', 'F', 'Viviane Sarmento', '2005-09-30', 'Marta Araújo', '83982768594', '83982345697', '20150021'),
+('20230028', '787.787.787-78', 'M', 'José Sicupira Neto', '2004-12-22', 'Edmar Filho', '83981454536', '83982075657','20200008'),
+('20230029', '889.889.889-89', 'F', 'Vitória Braga', '2003-08-17', 'Marta Araújo', '83982768594', '83982345697', '20150021'),
+('20230030', '990.990.990-90', 'M', 'João Vítor', '2002-06-25',  'Edmar Filho', '83981454536', '83982075657','20200008'),
+('20230031', '103.103.103-02', 'F', 'Adrielly Sousa', '2001-04-09', 'Hernandes Lopes', '83981234572', '83988346277', '20210003'),
+('20230032', '234.234.234-23', 'M', 'Luiz Felipe', '2000-10-12', 'Ozenir Sousa', '83982073981', '83982008765', '20150021'),
+('20230033', '345.345.345-34', 'M', 'Karlos Messyas', '1999-03-29', 'Ozenir Sousa', '83982073981', '83982008765', '20150021'),
+('20230034', '456.406.456-45', 'M', 'Flávio Túlio', '2014-07-03',  'Edmar Filho', '83981454536', '83982075657','20200008'),
+('20230035', '567.567.567-56', 'M', 'Guilherme Abreu', '2013-05-12',  'Ozenir Sousa', '83982073981', '83982008765', '20150021'),
+('20230036', '678.678.678-67', 'M', 'Matheus Jorge Filho', '2012-08-22', 'Martha Sousa e Silva', '83988767876', '83988765422', '20200008'),
+('20230037', '789.789.789-78', 'F', 'Alice Estrela', '2011-10-10', 'Martha Sousa e Silva', '83988767876', '83988765422', '20200008'),
+('20230038', '890.890.890-89', 'M', 'Esdras Gabriel', '2010-02-14',  'Edmar Filho', '83981454536', '83982075657','20200008'),
+('20230039', '901.901.901-90', 'M', 'Marcos Paulo', '2009-04-19',  'Edmar Filho', '83981454536', '83982075657','20200008'),
+('20230040', '012.012.012-01', 'M', 'André Marcos', '2008-11-26', 'Marta Araújo', '83982768594', '83982345697', '20150021'),
+('20230041', '123.123.123-45', 'F', 'Analucia Estrela Silva', '2007-03-30', 'José Alceu', '83981008786', '83981234588', '20150021'),
+('20230042', '234.234.234-56', 'M', 'José Anuário', '2006-09-02', 'Carla Anuário', '83988423456', '83981080706', '19980002'),
+('20230043', '345.345.345-67', 'F', 'Maria Anuário', '2005-01-05', 'Carla Anuário', '83988423456', '83981080706', '19980002'),
+('20230044', '456.456.456-78', 'M', 'Alice Esther', '2004-04-10', 'José Alceu', '83981008786', '83981234588', '20150021'),
+('20230045', '567.567.567-89', 'F', 'Matheus Gabriel Bamboa', '2003-06-15', 'José Alceu', '83981008786', '83981234588', '20150021');
+
+insert into enderecoalunos
+values
+('20230021', 'Urbana', 'Sousa', 'Gato Preto', 11, 'Rua Josival Messyas'),
+('20230025', 'Urbana', 'Sousa', 'Gato Preto', 11, 'Rua Josival Messyas'),
+('20230041', 'Urbana', 'Sousa', 'Gato Preto', 11, 'Rua Josival Messyas'),
+('20230044', 'Urbana', 'Sousa', 'Gato Preto', 11, 'Rua Josival Messyas'),
+('20230045', 'Urbana', 'Sousa', 'Gato Preto', 11, 'Rua Josival Messyas'),
+('20230022', 'Rural', 'Sousa', 'Sítio dos Estrelas', 10, 'Rua Vereador Gabriel Marques'),
+('20230026', 'Rural', 'Sousa', 'Sítio dos Estrelas', 10, 'Rua Vereador Gabriel Marques'),
+('20230029', 'Rural', 'Sousa', 'Sítio dos Estrelas', 10, 'Rua Vereador Gabriel Marques'),
+('20230040', 'Rural', 'Sousa', 'Sítio dos Estrelas', 10, 'Rua Vereador Gabriel Marques'),
+('20230027', 'Rural', 'Sousa', 'Sítio dos Estrelas', 10, 'Rua Vereador Gabriel Marques'),
+('20230024', 'Urbana', 'Sousa', 'Gato Preto', 12, 'Rua Josival Messyas'),
+('20230028', 'Rural', 'São Francisco', 'Duas lagoas', 9, 'Rua Nova Vida'),
+('20230030', 'Rural', 'São Francisco', 'Duas lagoas', 9, 'Rua Nova Vida'),
+('20230034', 'Rural', 'São Francisco', 'Duas lagoas', 9, 'Rua Nova Vida'),
+('20230038', 'Rural', 'São Francisco', 'Duas lagoas', 9, 'Rua Nova Vida'),
+('20230039', 'Rural', 'São Francisco', 'Duas lagoas', 9, 'Rua Nova Vida'),
+('20230031', 'Urbana', 'Sousa', 'Centro', 12, 'Rua Nova'),
+('20230032', 'Urbana', 'Marizópolis', 'Centro', 45, 'Rua das Alamedas'),
+('20230033', 'Urbana', 'Marizópolis', 'Centro', 45, 'Rua das Alamedas'),
+('20230035', 'Urbana', 'Marizópolis', 'Centro', 45, 'Rua das Alamedas'),
+('20230036', 'Rural', 'Sousa', 'Sítio dos Dinossauros', 23, 'Rua Asfaltada'),
+('20230037', 'Rural', 'Sousa', 'Sítio dos Dinossauros', 23, 'Rua Asfaltada'),
+('20230042', 'Urbana', 'Sousa', 'Gato Preto', 22, 'Rua Josival Messyas'),
+('20230043', 'Urbana', 'Sousa', 'Gato Preto', 22, 'Rua Josival Messyas');
 
