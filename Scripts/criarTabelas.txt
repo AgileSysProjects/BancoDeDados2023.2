@@ -150,7 +150,7 @@ create table avaliacaodealuno (
 create table bimestredealuno (
     matriculaaluno character(8),
     idbimestre int, 
-    situacao varchar(20) not null,
+    situacao varchar(20),
     primary key (matriculaaluno, idbimestre),
     foreign key (matriculaaluno) references alunos(matricula),
     foreign key (idbimestre) references bimestres(idbimestre)
