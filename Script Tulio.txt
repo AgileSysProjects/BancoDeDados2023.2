@@ -1,0 +1,59 @@
+
+Com esse script é possível listar os alunos matriculados em uma turma específica com informações sobre a turma e o aluno. (consultas envolvendo junções)
+
+SELECT turmas.idturma, turmas.ano, alunos.matricula AS matricula_aluno, alunos.nome AS nome_aluno
+FROM turmas
+INNER JOIN turmasdealuno ON turmas.idturma = turmasdealuno.idturma
+INNER JOIN alunos ON turmasdealuno.matriculaaluno = alunos.matricula
+WHERE turmas.idturma = 1;  -- Substitua 1 pelo ID da turma desejada
+
+Com esse script é possível listar as disciplinas ministradas por um professor específico com informações sobre o professor e a disciplina. (consultas envolvendo junções)
+
+SELECT p.nome AS nome_professor, p.matricula AS matricula_professor, d.nome AS nome_disciplina
+FROM professores p
+INNER JOIN professoresporturma pt ON p.matricula = pt.matriculaprofessor
+INNER JOIN disciplinas d ON pt.iddisciplina = d.iddisciplina
+WHERE p.matricula = '20190005';  -- Substitua 'PROF001' pela matrícula do professor desejado
+
+Com esse script é possível consultar usando a coluna "telefoneresponsavel2" que corresponde à segunda opção de telefone para alunos. (consultas envolvendo comparações com valores
+nulos)
+
+SELECT matricula, nome, telefoneresponsavel2
+FROM alunos
+WHERE telefoneresponsavel2 IS NULL;
+
+Listar os professores que têm um endereço especificado e aqueles que não têm endereço registrado. (consultas envolvendo comparações com valores nulos)
+
+SELECT professores.matricula, professores.nome, enderecoprofessor.logradouro
+FROM professores
+LEFT JOIN enderecoprofessor ON professores.matricula = enderecoprofessor.matriculaprofessor;
+
+
+Encontrar todos os professores cujo nome contenha a substring 'Silva':
+Nesta consulta, estamos usando a cláusula LIKE para encontrar todos os registros na tabela de professores onde o campo "nome" contém a substring 'Silva'. O % antes e depois da substring 'Silva' significa que a substring pode aparecer em qualquer lugar do campo "nome". (consultas usando buscas por substrings)
+
+SELECT matricula, nome
+FROM professores
+WHERE nome LIKE '%Silva%';
+
+Encontrar todos os alunos cujo nome do responsável contenha a substring 'Maria':
+Nesta consulta, estamos usando a cláusula LIKE novamente para encontrar todos os registros na tabela de alunos onde o campo "nomeresponsavel" contém a substring 'Maria'. (consultas usando buscas por substrings)
+
+SELECT matricula, nome, nomeresponsavel
+FROM alunos
+WHERE nomeresponsavel LIKE '%Maria%';
+
+Ordenar os alunos por nome em ordem alfabética crescente:
+Nesta consulta, estamos selecionando os campos "matricula" e "nome" da tabela de alunos e ordenando os resultados em ordem alfabética crescente com base no campo "nome". Isso resultará em uma lista de alunos em ordem alfabética crescente por seus nomes. (consultas envolvendo ordenação)
+
+SELECT matricula, nome
+FROM alunos
+ORDER BY nome ASC;
+
+Ordenar os professores por salário em ordem decrescente:
+Nesta consulta, estamos selecionando os campos "matricula", "nome" e "salario" da tabela de professores e ordenando os resultados em ordem decrescente com base no campo "salario". Isso resultará em uma lista de professores em ordem decrescente de acordo com seus salários. (consultas envolvendo ordenação)
+
+SELECT matricula, nome, salario
+FROM professores
+ORDER BY salario DESC;
+
