@@ -13,11 +13,16 @@ JOIN Turmas ON ProfessoresPorTurma.idTurma = Turmas.idTurma
 JOIN Disciplinas ON ProfessoresPorTurma.idDisciplina = Disciplinas.idDisciplina
 WHERE Professores.Matricula = '20190005' AND Turmas.idTurma = '2'
 
--- Consulta é possível listar todos os professores que possuem um ou vários telefone cadastrado
+-- Consulta para listar todos os professores que possuem mais de um telefones cadastrados
+SELECT matricula, nome, telefone1, telefone2
+FROM professores
+WHERE telefone1 IS NOT NULL AND telefone2 IS NOT NULL;
 
-
--- Consulta para listar os professores que têm um endereço especificado e aqueles que não têm endereço registrado
-
+-- Consulta para listar todos os professores que não possuam endereço cadastrado
+SELECT professores.matricula, professores.nome
+FROM professores
+LEFT JOIN enderecoprofessor ON professores.matricula = enderecoprofessor.matriculaprofessor
+WHERE enderecoprofessor.matriculaprofessor IS NULL;
 
 -- Consulta para buscar por professores de acordo com seus nomes
 SELECT matricula, nome
