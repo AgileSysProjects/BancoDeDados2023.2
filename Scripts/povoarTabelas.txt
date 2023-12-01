@@ -1,13 +1,13 @@
 insert into professores 
 values 
-('20210001', '111.111.111-11', 'José Antônio da Silva', '2021-02-03', 3000.00, 'joseantonio@gmail.com', 'Letras em Português', 'Graduação', '83982074951', '83981080123'),
-('20210002', '222.222.222-22', 'Cândida Maria Mariz', '2021-02-03', 5000.00, 'candidamaria@gmail.com', 'Matemática e suas Técnologias', 'Mestrado', '83988764532', '83988826354'),
-('20200003', '333.333.333-33', 'José Guimarães da Silva Neto', '2020-02-03', 3500.00, 'joseguimaraes@gmail.com', 'Ciências Humanas e Sociais', 'Graduação', '83991234572', '83991876512');
+('20210001', '111.111.111-11', 'José Antônio da Silva', '2021-02-03', 2000.00, 'joseantonio@gmail.com', 'Letras em Português', 'Graduação', '83982074951', '83981080123'),
+('20210002', '222.222.222-22', 'Cândida Maria Mariz', '2021-02-03', 4500.00, 'candidamaria@gmail.com', 'Matemática e suas Técnologias', 'Mestrado', '83988764532', '83988826354'),
+('20200003', '333.333.333-33', 'José Guimarães da Silva Neto', '2020-02-03', 2500.00, 'joseguimaraes@gmail.com', 'Ciências Humanas e Sociais', 'Graduação', '83991234572', '83991876512');
 
 insert into professores
 values
-('20180004', '444.444.444-44', 'Luciamara Cavalcante Araújo', '2018-02-03', 4000.00, 'luciamaracavalcante@gmail.com', 'Ciências da Natureza', 'Graduação', '83981768900'),
-('20190005', '555.555.555-55', 'Paulo Freitas da Silva', '2019-02-03', 4000.00, 'paulofreitas@gmail.com', 'História Geral', 'Graduação', '83982072233');
+('20180004', '444.444.444-44', 'Luciamara Cavalcante Araújo', '2018-02-03', 2700.00, 'luciamaracavalcante@gmail.com', 'Ciências da Natureza', 'Graduação', '83981768900'),
+('20190005', '555.555.555-55', 'Paulo Freitas da Silva', '2019-02-03', 1700.00, 'paulofreitas@gmail.com', 'História Geral', 'Graduação', '83982072233');
 
 insert into enderecoprofessor
 values 
