@@ -1,0 +1,43 @@
+-- Verifica se a faixa salarial do professor esteja de acordo com sua titulação
+
+CREATE FUNCTION verificarSalario()
+ RETURNS TRIGGER AS
+ $$
+ BEGIN
+ 	IF NEW.Titulacao = 'Graduação' AND NEW.Salario >= 1200 AND NEW.Salario < 3500 THEN RETURN NEW;
+		ELSE RETURN NULL;
+	END IF;
+	IF NEW.Titulacao = 'Mestrado' AND NEW.Salario >=3500 AND NEW.Salario < 5000 THEN RETURN NEW;
+		ELSE RETURN NULL;
+	END IF;
+	IF NEW.Titulacao = 'Mestrado' AND NEW.Salario >= 5000 THEN RETURN NEW;
+		ELSE RETURN NULL;
+	END IF;
+ END
+ $$
+ LANGUAGE PLPGSQL
+ 
+CREATE TRIGGER verificarSalarioTG
+BEFORE INSERT OR UPDATE ON Professores
+FOR EACH ROW
+EXECUTE PROCEDURE verificarSalario();
+
+-- Garante que a carga horário e o total de horas de cada disciplina está em acordo como o exigido pela escola
+
+CREATE FUNCTION verificarTotalAulas()
+ RETURNS TRIGGER AS
+ $$
+ BEGIN
+ 	IF NEW.Totalaulas < 1 THEN RETURN NULL;
+		ELSE IF NEW.Cargahoraria <= NEW.Totalaulas * 30 THEN RETURN NULL;
+			ELSE RETURN NEW;
+			END IF;
+	END IF;
+ END
+ $$
+ LANGUAGE PLPGSQL;
+ 
+ CREATE TRIGGER verificarTotalAulasTG
+ BEFORE INSERT OR UPDATE ON Disciplinas
+ FOR EACH ROW
+ EXECUTE PROCEDURE verificarTotalAulas();
