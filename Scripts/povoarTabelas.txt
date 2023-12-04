@@ -13,7 +13,9 @@ INSERT INTO enderecoprofessor
 VALUES 
 ('20210001', 'Sousa', 'Estação', 401, 'Rua Dom Pedro I'), 
 ('20210002', 'Sousa', 'Estação', 304, 'Rua Dom Pedro II'),
-('20200003', 'Sousa', 'Centro', 202, 'Rua Gualberto Filho');
+('20200003', 'Sousa', 'Centro', 202, 'Rua Gualberto Filho'),
+('20180004', 'Cajazeiras', 'Centro', 150, 'Avenida Joca Claudino'),
+('20190005', 'Cajazeiras', 'Por do Sol', 989, 'Rua José Leite de Oliveira');
 
 INSERT INTO secretarios
 VALUES

@@ -1,4 +1,4 @@
--- Obter notas de um aluno a partir de sua matrícula
+-- Retorna notas de um aluno a partir de sua matrícula
 SELECT Alunos.Nome AS NomeAluno, Avaliacoes.Tipo, AvaliacaoDeAluno.Nota
 FROM Alunos
 JOIN AvaliacaoDeAluno ON Alunos.Matricula = AvaliacaoDeAluno.MatriculaAluno
@@ -44,13 +44,41 @@ SELECT matricula, nome, salario
 FROM professores
 ORDER BY salario DESC;
 
--- 
+-- Retorna matricula de alunos de acordo com sua rua
+SELECT matriculaaluno
+FROM Enderecoalunos
+WHERE logradouro IN(
+	SELECT logradouro
+ 	FROM enderecoalunos
+ 	WHERE logradouro = 'Rua Josival Messyas'
+);
 
---
+-- Retorna nome dos professores de acordo com sua titulação
+SELECT nome
+FROM professores
+WHERE titulacao IN(
+	SELECT titulacao
+ 	FROM professores
+ 	WHERE titulacao = 'Mestrado'
+);
 
---
+-- Retorna matricula de professores que possuem apenas um telefone
+SELECT matricula
+FROM professores
+WHERE EXISTS(
+	SELECT *
+	FROM turmas
+	WHERE telefone2 IS NULL
+);
 
---
+-- Retorna as disciplinas que não lançaram avaliações
+SELECT Nome
+FROM Disciplinas D
+WHERE NOT EXISTS (
+    SELECT *
+    FROM Avaliacoes Av
+    WHERE Av.idDisciplina = D.idDisciplina
+);
 
 -- Retorna a matrícula dos alunos que tem faltas
 SELECT A.Matricula
