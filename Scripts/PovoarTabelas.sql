@@ -19,7 +19,7 @@ INSERT INTO secretarios
 VALUES
 ('20150021', '666.666.666-66', 'Ranyel Soares', '2015-05-09', 2500.00, 'ranyelsoares@gmail.com', 'Comissionado', 'Integral', '83981234567', '83981876345'),
 ('20160023', '777.777.777-77', 'Matheus Lorenzo Braga', '2016-03-07', 3000.00, 'matheuslorenzo@gmail.com', 'Comissionado', 'Matutino', '83988342515', '83981231487'),
-('19980002', '888.888.888-88', 'Maria Rita Sousa', '1998-01-02', 2000.00, 'mariarita@gmail.com', 'Concursado', '83991456789', 'Integral','83991887734'),
+('19980002', '888.888.888-88', 'Maria Rita Sousa', '1998-01-02', 2000.00, 'mariarita@gmail.com', 'Concursado', 'Integral', '83991456789','83991887734'),
 ('20200008', '999.999.999-99', 'Antônia Carla Andrade', '2020-04-04', 3000.00, 'antoniacarla@gmail.com', 'Comissionado', 'Vespertino', '83982564788', '83981236789'),
 ('20210003', '123.123.123-12', 'Carlos Alberto Nobrega', '2021-01-02', 3500.00, 'carlosalberto@gmail.com', 'Concursado', 'Noturno', '83999876234', '83982557890');
 
