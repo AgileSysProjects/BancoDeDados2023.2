@@ -1,0 +1,95 @@
+-- Obter notas de um aluno a partir de sua matrícula
+SELECT Alunos.Nome AS NomeAluno, Avaliacoes.Tipo, AvaliacaoDeAluno.Nota
+FROM Alunos
+JOIN AvaliacaoDeAluno ON Alunos.Matricula = AvaliacaoDeAluno.MatriculaAluno
+JOIN Avaliacoes ON AvaliacaoDeAluno.idAvaliacao = Avaliacoes.idAvaliacao
+WHERE Alunos.Matricula = '20230024' AND Avaliacoes.idAvaliacao = '7';
+
+-- Retornar disciplinas ministradas por um professor em uma turma específica
+SELECT Professores.Nome AS NomeProfessor, Disciplinas.Nome AS NomeDisciplina, Turmas.Ano, Turmas.Serie
+FROM Professores
+JOIN ProfessoresPorTurma ON Professores.Matricula = ProfessoresPorTurma.MatriculaProfessor
+JOIN Turmas ON ProfessoresPorTurma.idTurma = Turmas.idTurma
+JOIN Disciplinas ON ProfessoresPorTurma.idDisciplina = Disciplinas.idDisciplina
+WHERE Professores.Matricula = '20190005' AND Turmas.idTurma = '2';
+
+-- Retorna professores que possuem seus dois telefones cadastrados
+SELECT matricula, nome, telefone1, telefone2
+FROM professores
+WHERE telefone1 IS NOT NULL AND telefone2 IS NOT NULL;
+
+-- Retorna professores que não possuem endereço cadastrado
+SELECT professores.matricula, professores.nome
+FROM professores
+LEFT JOIN enderecoprofessor ON professores.matricula = enderecoprofessor.matriculaprofessor
+WHERE enderecoprofessor.matriculaprofessor IS NULL;
+
+-- Retorna dados de professores a partir do seu nome ou sobrenome
+SELECT matricula, nome
+FROM professores
+WHERE nome LIKE '%Silva%';
+
+-- Retorna dados de professores a partir do seu email
+SELECT matricula, nome, email
+FROM professores
+WHERE email LIKE '%gmail%';
+
+-- Retorna lista dos alunos em ordem crescente (alfabética)
+SELECT matricula, nome
+FROM alunos
+ORDER BY nome ASC;
+
+-- Retorna lista de professores em ordem decrescente de acordo com o salário
+SELECT matricula, nome, salario
+FROM professores
+ORDER BY salario DESC;
+
+-- 
+
+--
+
+--
+
+--
+
+-- Retorna a matrícula dos alunos que tem faltas
+SELECT A.Matricula
+FROM Alunos A
+INTERSECT
+SELECT F.MatriculaAluno
+FROM Faltas F;
+
+-- Retorna a matricula dos alunos que não possuem faltas
+SELECT A.Matricula
+FROM Alunos A
+EXCEPT
+SELECT F.MatriculaAluno
+FROM Faltas F;
+
+-- Retorna média global de um aluno em específico usando sua matrícula
+SELECT avg(a.nota)
+FROM avaliacaodealuno a, alunos c
+WHERE a.matriculaaluno = c.matricula and c.matricula ='20230029';
+
+-- Retorna total da folha de pagamento da escola
+SELECT SUM(sum) AS folhapagamento
+FROM (
+    SELECT SUM(salario) 
+	FROM professores
+    UNION
+    SELECT SUM(salario) 
+	FROM secretarios
+);
+
+-- Retorna média global (todos os alunos) de cada turma
+SELECT a.idturma, AVG(nota)
+FROM avaliacoes a, avaliacaodealuno b
+WHERE a.idavaliacao = b.idavaliacao
+GROUP BY a.idturma;
+
+-- Retorna média global das turmas que obtiveram resultado superior a 7
+SELECT a.idturma, AVG(nota) AS mediaturma
+FROM avaliacoes a, avaliacaodealuno b
+WHERE a.idavaliacao = b.idavaliacao
+GROUP BY a.idturma
+HAVING AVG(nota) > 7;

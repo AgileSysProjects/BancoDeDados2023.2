@@ -1,0 +1,17 @@
+CREATE INDEX IndiceProfessor ON Professores(Matricula);
+CREATE INDEX IndiceEnderecoProfessor ON EnderecoProfessor(MatriculaProfessor, Municipio);
+CREATE INDEX IndiceSecretarios ON Secretarios(Matricula);
+CREATE INDEX IndiceEderecoSecretario ON EnderecoSecretario(MatriculaSecretario, Municipio);
+CREATE INDEX IndiceDisciplinas ON Disciplinas(idDisciplina);
+CREATE INDEX IndiceTurmas ON Turmas(idTurma);
+CREATE INDEX IndiceAulas ON Aulas(idAula);
+CREATE INDEX IndiceAlunos ON Alunos(Matricula);
+CREATE INDEX IndiceEnderecoAluno ON EnderecoAlunos(MatriculaAluno, Municipio);
+CREATE INDEX IndiceAvaliacoes ON Avaliacoes(idAvaliacao);
+CREATE INDEX IndiceBimestres ON Bimestres(idBimestre);
+CREATE INDEX IndiceFaltas ON Faltas(idFalta);
+CREATE INDEX IndiceFaltasPorAula ON FaltasPorAula(idFalta, idAula);
+CREATE INDEX IndiceAvaliacaoDeAluno ON AvaliacaoDeAluno(MatriculaAluno);
+CREATE INDEX IndiceBimestreDeAluno ON BimestreDeAluno(MatriculaAluno);
+CREATE INDEX IndiceTurmasDeAluno ON TurmasDeAluno(idTurma, MatriculaAluno);
+CREATE INDEX IndiceProfessoresPorTurma ON ProfessoresPorTurma(MatriculaProfessor);
