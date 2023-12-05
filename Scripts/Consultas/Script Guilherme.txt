@@ -1,0 +1,13 @@
+-- Matricula dos alunos que possuem faltas
+SELECT A.Matricula
+FROM Alunos A
+INTERSECT
+SELECT F.MatriculaAluno
+FROM Faltas F;
+
+-- Matricula dos alunos que não possuem faltas
+SELECT A.Matricula
+FROM Alunos A
+EXCEPT
+SELECT F.MatriculaAluno
+FROM Faltas F;

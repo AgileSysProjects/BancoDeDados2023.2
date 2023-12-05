@@ -1,0 +1,40 @@
+-- Selecione a matricula dos alunos que moram no logradouro 'Rua Josival Messyas'(Consulta aninhada)
+SELECT matriculaaluno
+FROM Enderecoalunos
+WHERE logradouro IN(
+	SELECT logradouro
+ 	FROM enderecoalunos
+ 	WHERE logradouro = 'Rua Josival Messyas'
+);
+
+
+-- Selecione o nome dos professores que tem mestrado(Consulta aninhada)
+SELECT nome
+FROM professores
+WHERE titulacao IN(
+	SELECT titulacao
+ 	FROM professores
+ 	WHERE titulacao = 'Mestrado'
+);
+
+
+-- Selecione a matricula dos professores em que o telefone 2 possui valor nulo(Consulta aninhada correlacionada)
+SELECT matricula
+FROM professores
+WHERE EXISTS(
+	SELECT *
+	FROM turmas
+	WHERE telefone2 IS NULL
+);
+
+
+-- Seleciona as disciplinas que não lançaram avaliações(Consulta aninhada correlacionada)
+SELECT Nome
+FROM Disciplinas D
+WHERE NOT EXISTS (
+    SELECT *
+    FROM Avaliacoes Av
+    WHERE Av.idDisciplina = D.idDisciplina
+);
+
+
