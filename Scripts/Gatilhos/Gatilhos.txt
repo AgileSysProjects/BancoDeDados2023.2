@@ -4,14 +4,16 @@ CREATE FUNCTION verificarSalario()
  RETURNS TRIGGER AS
  $$
  BEGIN
- 	IF NEW.Titulacao = 'Graduação' AND NEW.Salario >= 1200 AND NEW.Salario < 3500 THEN RETURN NEW;
-		ELSE RETURN NULL;
+ 	IF NEW.Titulacao = 'Graduação' THEN IF NEW.Salario >= 1200 AND NEW.Salario < 3500 THEN RETURN NEW;
 	END IF;
-	IF NEW.Titulacao = 'Mestrado' AND NEW.Salario >=3500 AND NEW.Salario < 5000 THEN RETURN NEW;
-		ELSE RETURN NULL;
 	END IF;
-	IF NEW.Titulacao = 'Mestrado' AND NEW.Salario >= 5000 THEN RETURN NEW;
+	IF NEW.Titulacao = 'Mestrado' THEN IF NEW.Salario >=3500 AND NEW.Salario < 5000 THEN RETURN NEW;
+	
+	END IF;
+	END IF;
+	IF NEW.Titulacao = 'Doutorado' THEN IF NEW.Salario >= 5000 THEN RETURN NEW;
 		ELSE RETURN NULL;
+		END IF;
 	END IF;
  END
  $$
